@@ -130,7 +130,7 @@ removeElement(element)
     }
     return -1;
   }
-  isEmpty()
+isEmpty()
 {
     return this.size == 0;
 }

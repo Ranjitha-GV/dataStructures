@@ -1,3 +1,5 @@
+"use strict"
+
 class Stack {
  
     // Array is used to implement stack
@@ -5,7 +7,6 @@ class Stack {
     {
         this.items = [];
     }
-}
 push(element)
 {
     // push element into the items
@@ -38,3 +39,5 @@ printStack()
         str += this.items[i] + " ";
     return str;
 }
+}
+module.exports= Stack

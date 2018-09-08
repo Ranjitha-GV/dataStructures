@@ -7,8 +7,9 @@ var fs=require('fs');
 
 function LinkedList()
 {
+    var val;
     var number = fs.readFileSync('number.txt');
-    number = number.toString().split(" ");
+    number = number.toString().split(",");
     number.sort();
     var list = new utility();
     console.log("The contents of the list are ====> "+number)
@@ -27,11 +28,14 @@ function LinkedList()
     {
         console.log("Element found!!");        
         list.removeElement(val);
-        fs.truncate('/home/d/Desktop/labsfirst/dataStructures/main/dataTwo.txt',function(){console.log('done')})
+        val = list.printList();
+        var arr = Array.from(val);
+        arr.sort();
+        val = arr.toString();
+        fs.writeFile('/home/d/Desktop/labsfirst/dataStructures/main/dataTwo.txt',val,function(){console.log('done')})
 
     }
-    console.log("Updated list is ===> "); 
-    list.printList();
-    
+    console.log("Updated list is ===> ");
+    console.log(val);
 }
 LinkedList();
