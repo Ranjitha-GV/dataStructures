@@ -17,10 +17,9 @@ dequeue()
     // removing element from the queue
     // returns underflow when called 
     // on empty queue
-   // if(this.isEmpty())
-    //    return "Underflow";
-    this.item=this.items.shift();
-    console.log(this.item);
+    if(this.isEmpty())
+        return "Underflow";
+    return this.items.shift();
 }
 front()
 {

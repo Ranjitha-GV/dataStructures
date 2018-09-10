@@ -5,7 +5,7 @@ var utility =require('/home/d/Desktop/labsfirst/dataStructures/utility/utilityQu
 function Queue()
 {
     var queue = new utility();
-    var accountNum = Math.random(100,200);
+    var accountNum;
     console.log("Welcome to People's bank!!");
    
     var val = prompt("Please enter the number of customers: ");
@@ -13,8 +13,8 @@ function Queue()
     {
         queue.enqueue(i);
     }
+    console.log("The token number of people in the queue is ===> ");
     queue.printQueue();
-    console.log(queue.size())
     while(queue.size()>0)
     {
         var accountNum = prompt("Please enter your account number: ");
@@ -22,15 +22,21 @@ function Queue()
         {
             console.log("Enter 1 for cash withdrawal and 2 for cash deposit: ");
             var choice = prompt("Please enter your choice: ");
-            var queue = new utility();
             var amount = 5000, Balance,Balance1;
             switch(choice)
             {
                 case '1': 
                 var withdrawal = prompt("Enter the amount to withdraw: ");
+                if(withdrawal<amount)
+                {
                 console.log("The amount withdrew by the customer is "+withdrawal);
                 Balance = Number(amount) - Number(withdrawal);
                 console.log("Your account balance is: "+Balance);
+                }
+                else
+                {
+                    console.log("Insufficient balance!!");
+                }
                 break;
             
                 case '2':
@@ -42,25 +48,24 @@ function Queue()
 
                 default:
                 console.log("Invalid choice!!");
+                break;
             }
         }
         else
         {
             console.log("Enter valid account number!!");
         }
-      queue.dequeue();
-      console.log(queue.size())
-
+       queue.dequeue();
+       console.log("The The token number of people remaining in the queue is ===> ")
+       queue.printQueue();
     }
-  /*  if(queue.size()==0)
+    if(queue.size()==0)
     {
-        console.log("The queue is balanced");
+        console.log("The queue is balanced!!");
     }
     else
     {
-        console.log("The queue is not balanced");
+        console.log("The queue is not balanced!!")
     }
- }*/
-
 }
 Queue()
