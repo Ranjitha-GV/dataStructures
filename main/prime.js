@@ -2,8 +2,8 @@ let prompt = require('prompt-sync')();
 
 let utility = require('/home/d/Desktop/labsfirst/dataStructures/utility/utilityPrime.js');
 
-let re = /[a-zA-Z]/g;
-let re2 = /[!@#$%^&*().<>+-/*"'`~]/g;
+let re = /[a-zA-Z]/g; //to check for strings
+let re2 = /[!@#$%^&*().<>+-/*"'`~]/g; //to check for characters
 
 
 
@@ -20,6 +20,10 @@ function prime() {
         
              utility.checkPrime(num1,num2);
 
+        }
+        else
+        {
+            console.log("Invalid Input");
         }
     }
     prime();

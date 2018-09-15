@@ -29,11 +29,7 @@ function LinkedList()
         list.removeElement(res);
     }
         res = list.printList();
-        var arr = Array.from(res);
-        arr.sort();
-        console.log(arr);
-        res = arr.toString();
-        console.log(res);
+        list.sortList();
         fs.writeFile('/home/d/Desktop/labsfirst/dataStructures/main/number.txt',res,function(){console.log('done')})
         console.log("Updated list is ===> ");
         console.log(res);

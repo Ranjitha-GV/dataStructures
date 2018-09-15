@@ -2,37 +2,59 @@
 var prompt = require('prompt-sync')();
 var utility =require('/home/d/Desktop/labsfirst/dataStructures/utility/utilityData.js');
 var fs=require('fs');
-
+/**
+ * @description hashing function implementation
+ * @param Array holds the final 2D array
+ * 
+ */
 function hashFunc()
 {
-    var arr = new Array(10),arr1=[],arr2=[],arr3=[],arr4=[],arr5=[],arr6=[],arr7=[],arr8=[],arr9=[],arr10=[],arr11=[];
+    var arr = new Array(10),array=[],arr1=[],arr2=[],arr3=[],arr4=[],arr5=[],arr6=[],arr7=[],arr8=[],arr9=[],arr10=[],arr11=[];
     var list = new utility();
-    var hash = fs.readFileSync('hash.txt');
-    hash = hash.toString().split(" ");
-    var arr = Array.from(hash);
-    arr.sort();
+    var hash1 = fs.readFileSync('hash.txt'); //reading the hash.txt file into this programe
+    hash1 = hash1.toString().split(" ");  //convert string into an array
+    var hash = []
+    for(var i = 0 ; i < hash1.length; i++)
+    {
+        if(hash1 != '')
+
+        {
+            hash.push(hash1[i]);
+        }
+    }
+    var arr = Array.from(hash); //convert string into an array
+    arr.sort(); //sort the given array
     console.log(arr);
     var val = prompt("Please enter a value to search: ");
     for(var i=0;i<hash.length;i++)
     {
-        list.add(hash[i]);
+        list.add(hash[i]); //add the elements of the array into a linked list
     }
     list.printList();
-    var result = list.indexOf(val);
+    var result = list.indexOf(val); //to find the index of the given element
     if(result == -1)
     {
         console.log("Element not found!!");
-       list.add(val);
+       list.add(val); //add element to the array
+       hash.push(val)
+       
     }
     else
     {
         console.log("Element found!!");       
-        list.removeElement(val);
+        list.removeElement(val); //remove element from the array
+        var cat = hash.indexOf(val);
+        hash.slice(cat,1);
     }
-        val = list.printList();
+
+     array = list.printList();
+     fs.writeFile('/home/d/Desktop/labsfirst/dataStructures/main/hash.txt', array , function(){console.log('done')})
+        // val = list.printList();
+        // console.log(val);
+
         for(var j=0; j<hash.length;j++)
         {
-            var res = parseInt(hash[j])%parseInt(hash.length);
+            var res = parseInt(hash[j])%parseInt(hash.length); //to determine the reminder
             switch(parseInt(res))
             {
                 case 0: 
@@ -81,7 +103,7 @@ function hashFunc()
 
             }
         }
-        var array=[];
+        var array=[]; //pushing into 2D array
         array.push(arr1);
         array.push(arr2);
         array.push(arr3);
@@ -98,6 +120,7 @@ function hashFunc()
         {
             console.log("Slot "+k+" --> "+array[k].join('-->'));
         }
+        //writing the final result into the file
         fs.writeFile('/home/d/Desktop/labsfirst/dataStructures/main/hash2.txt', array.join('-->') , function(){console.log('done')})
 }
 hashFunc();

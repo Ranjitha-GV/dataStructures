@@ -1,9 +1,8 @@
  "use strict"
-  class Node {
-       // constructor
+  class Node {  // constructor
         constructor(element)
         {
-            this.element = element;
+            this.element = element; //initialize variables
             this.next = null
         }
     }
@@ -11,7 +10,7 @@
   class LinkedList {
       constructor()
       {
-          this.head = null;
+          this.head = null; //initialize variables
           this.size = 0;
       }
      
@@ -132,14 +131,17 @@ removeElement(element)
   }
 isEmpty()
 {
+    //to check if the linked list is empty
     return this.size == 0;
 }
 size_of_list()
 {
+    //to display size of the linked list
     console.log(this.size);
 }
 printList()
 {
+    //to print the linked list
     var curr = this.head;
     var str = "";
     while (curr) {
@@ -151,6 +153,7 @@ printList()
 }
 indexOf(element)
 {
+    //find the index of the given element
     var count = 0;
     var current = this.head;
  
@@ -167,5 +170,43 @@ indexOf(element)
     // not found
     return -1;
  }
+ sortList() {
+
+    var swap;
+    var current = this.head;
+    var current1 = current.next;
+    var n = this.size;
+
+    for (let i = 0; i < n; i++) {
+
+        for (let j = 0; j < n - i - 1; j++) {
+
+            if (parseInt(current1.element) < parseInt(current.element)) { //compare element with its previous element
+
+                swap = current.element; //if condition satisfies then swap the values
+
+                current.element = current1.element; 
+
+                current1.element = swap;
+
+            }
+
+            if (current1.next != null) {
+
+                current = current1;
+
+                current1 = current1.next;
+
+            }
+
+        }
+
+        current = this.head;
+
+        current1 = current.next;
+    }
+
+    console.log('List sorted');
+  }
 }
 module.exports = LinkedList

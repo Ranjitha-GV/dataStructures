@@ -36,6 +36,7 @@ isEmpty()
 }
 printQueue()
 {
+    //to print elements of the queue
     var str = "";
     for(var i = 0; i < this.items.length; i++)
         str += this.items[i] +" ";
@@ -44,6 +45,7 @@ printQueue()
 }
 size()
 {
+    //to find the size of the queue
     return this.items.length;
 }
 }
