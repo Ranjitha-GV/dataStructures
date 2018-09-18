@@ -49,14 +49,13 @@ function hashFunc()
 
      array = list.printList();
      fs.writeFile('/home/d/Desktop/labsfirst/dataStructures/main/hash.txt', array , function(){console.log('done')})
-        // val = list.printList();
-        // console.log(val);
 
         for(var j=0; j<hash.length;j++)
         {
             var res = parseInt(hash[j])%parseInt(hash.length); //to determine the reminder
-            switch(parseInt(res))
+            switch(parseInt(res)) 
             {
+                //saving reminders in respective arrays 
                 case 0: 
                 arr1.push(hash[j]);
                 break;
@@ -121,6 +120,6 @@ function hashFunc()
             console.log("Slot "+k+" --> "+array[k].join('-->'));
         }
         //writing the final result into the file
-        fs.writeFile('/home/d/Desktop/labsfirst/dataStructures/main/hash2.txt', array.join('-->') , function(){console.log('done')})
+        fs.writeFile('/home/d/Desktop/labsfirst/dataStructures/main/hash2.txt', array.join('-->') , function(){console.log('done')}) //writing into the external text file
 }
 hashFunc();
